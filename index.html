@@ -1,0 +1,80 @@
+<html>
+  <head>
+<style>
+body {
+  text-align: center;
+  margin: 40px 10px 10px 10px;
+}
+
+input {
+  height: 30px;
+  width: 50vw;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 4px;
+}
+
+.content {
+  text-align: left;
+}
+</style>
+
+  </head>
+  <body>
+    <input class="search">
+    <br><br>
+    <button class="submit">Search</button>
+
+    <div class="links" style="margin-top: 10px;">
+    </div>
+
+    <div class="content">
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+
+    var readable = function(a) {
+      return () => {
+        $.ajax({
+          url:"https://api.mastermind.do/115?url=" + a.xhref,
+          crossDomain: true,
+          success: function (response) {
+            $('.content').html('')
+            var p = document.createElement('p');
+            p.textContent = response.result.t
+            $('.content').append(p)
+          },
+          error: function (xhr, status) {
+            //handle errors
+          }
+        });
+      }
+    }
+
+      $('.submit').click(() => {
+        var search = $('.search').val()
+        $.ajax({
+          url:"https://api.mastermind.do/116?search="+search,
+          crossDomain: true,
+          success: function (response) {
+            $('.links').html('')
+            for (var item of response.result) {
+              var a = document.createElement('a');
+              var br = document.createElement('br');
+              a.textContent = item.t;
+              a.xhref = item.l
+              a.href = '#'
+              a.onclick = readable(a)
+              $('.links').append(a)
+              $('.links').append(br)
+            }
+          },
+          error: function (xhr, status) {
+            //handle errors
+          }
+        });
+      })
+    </script>
+  </body>
+</html>
