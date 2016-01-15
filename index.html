@@ -79,7 +79,7 @@
       $('.links').html('<b>Loading...</b>')
 
       $.ajax({
-        url:"https://api.mastermind.do/116?search="+search,
+        url:"https://api.mastermind.do/116?search="+search.replace(' ', '-'),
         crossDomain: true,
         success: function (response) {
           $('.links').html('')
