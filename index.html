@@ -59,7 +59,7 @@
       return function() {
         $('.content').html('<b>Loading...</b>')
         $.ajax({
-          url:"https://api.mastermind.do/115?url=" + a.xhref,
+          url:"https://api.mastermind.do/v1/115/9db132f5-20c9-49cf-8af7-cb07249dea49/?url=" + a.xhref,
           crossDomain: true,
           success: function (response) {
             $('.content').html('')
@@ -79,7 +79,7 @@
       $('.links').html('<b>Loading...</b>')
 
       $.ajax({
-        url:"https://api.mastermind.do/116?search="+search,
+        url:"https://api.mastermind.do/v1/116/9db132f5-20c9-49cf-8af7-cb07249dea49/?search="+search,
         crossDomain: true,
         success: function (response) {
           $('.links').html('')
