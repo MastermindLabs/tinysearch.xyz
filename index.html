@@ -62,7 +62,7 @@
           success: function (response) {
             $('.content').html('')
             var p = document.createElement('p');
-	    p.textContent = response.result.t.replace(/\n/g, '<br />')
+	    p.innerHTML = response.result.t.replace(/\n/g, '<br />')
             $('.content').append(p)
           },
           error: function (xhr, status) {
