@@ -57,7 +57,7 @@
       return function() {
         $('.content').html('<b>Loading...</b>')
         $.ajax({
-          url:"https://api.mastermind.do/v1/115/9db132f5-20c9-49cf-8af7-cb07249dea49/?url=" + a.xhref,
+          url:"https://api.extracty.com/v1/115/9db132f5-20c9-49cf-8af7-cb07249dea49/?url=" + a.xhref,
           crossDomain: true,
           success: function (response) {
             $('.content').html('')
@@ -67,6 +67,7 @@
           },
           error: function (xhr, status) {
             //handle errors
+            console.error('Error loading the endpoint 115.')
           }
         });
       }
@@ -77,7 +78,7 @@
       $('.links').html('<b>Loading...</b>')
 
       $.ajax({
-        url:"https://api.mastermind.do/v1/116/9db132f5-20c9-49cf-8af7-cb07249dea49/?search="+search,
+        url:"https://api.extracty.com/v1/116/9db132f5-20c9-49cf-8af7-cb07249dea49/?search="+search,
         crossDomain: true,
         success: function (response) {
           $('.links').html('')
@@ -94,6 +95,7 @@
         },
         error: function (xhr, status) {
           //handle errors
+          console.error('Error loading the endpoint 116.')
         }
       });
     } 
